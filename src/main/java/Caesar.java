@@ -2,23 +2,115 @@ import java.util.Scanner;
 
 public class Caesar {
     public static String encryptCaesar(String message) {
-        return message;
-        // REPLACE THIS WITH YOUR CODE
+        String newStr = "";
+
+        for (int i = 0; i < message.length(); i++) {
+            char ch = message.charAt(i);
+
+            // Lowercase letters
+            if (ch >= 'a' && ch <= 'z') {
+                ch -= 'a';
+                ch += 3;
+                ch %= 26;
+                ch += 'a';
+            }
+            // Uppercase letters
+            else if (ch >= 'A' && ch <= 'Z') {
+                ch -= 'A';
+                ch += 3;
+                ch %= 26;
+                ch += 'A';
+            }
+            
+            newStr += ch;
+        }
+
+        return newStr;
     }
 
     public static String decryptCaesar(String message) {
-        return message;
-        // REPLACE THIS WITH YOUR CODE
+        String newStr = "";
+
+        for (int i = 0; i < message.length(); i++) {
+            char ch = message.charAt(i);
+
+            // Lowercase letters
+            if (ch >= 'a' && ch <= 'z') {
+                ch -= 'a';
+                ch += 26;
+                ch -= 3;
+                ch %= 26;
+                ch += 'a';
+            }
+            // Uppercase letters
+            else if (ch >= 'A' && ch <= 'Z') {
+                ch -= 'A';
+                ch += 26;
+                ch -= 3;
+                ch %= 26;
+                ch += 'A';
+            }
+            
+            newStr += ch;
+        }
+
+        return newStr;
     }
 
     public static String encryptCaesarKey(String message, int key) {
-        return message;
-        // REPLACE THIS WITH YOUR CODE
+        String newStr = "";
+
+        for (int i = 0; i < message.length(); i++) {
+            char ch = message.charAt(i);
+
+            // Lowercase letters
+            if (ch >= 'a' && ch <= 'z') {
+                ch -= 'a';
+                ch += (key % 26);
+                ch %= 26;
+                ch += 'a';
+            }
+            // Uppercase letters
+            else if (ch >= 'A' && ch <= 'Z') {
+                ch -= 'A';
+                ch += (key % 26);
+                ch %= 26;
+                ch += 'A';
+            }
+            
+            newStr += ch;
+        }
+
+        return newStr;
     }
 
     public static String decryptCaesarKey(String message, int key) {
-        return message;
-        // REPLACE THIS WITH YOUR CODE
+        String newStr = "";
+
+        for (int i = 0; i < message.length(); i++) {
+            char ch = message.charAt(i);
+
+            // Lowercase letters
+            if (ch >= 'a' && ch <= 'z') {
+                ch -= 'a';
+                ch += 26;
+                ch -= (key % 26);
+                ch %= 26;
+                ch += 'a';
+            }
+            // Uppercase letters
+            else if (ch >= 'A' && ch <= 'Z') {
+                ch -= 'A';
+                ch += 26;
+                ch -= (key % 26);
+                ch %= 26;
+                ch += 'A';
+            }
+            
+            newStr += ch;
+        }
+
+        return newStr;
     }
 
 
@@ -41,7 +133,7 @@ public class Caesar {
             System.out.println(decryptCaesar(message));
         }
         else {
-            System.out.println("Unknown command; please type either \"encrypt\" or \"decrypt\"");
+            System.out.println("Unknown message; please type either \"encrypt\" or \"decrypt\"");
         }
 
         scan.close();
